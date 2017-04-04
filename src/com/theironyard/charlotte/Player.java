@@ -1,9 +1,12 @@
 package com.theironyard.charlotte;
 
+import java.util.ArrayList;
+
 public class Player {
     String name;
     String weapon;
     String location;
+    ArrayList<String> items = new ArrayList<>();
 
     public void chooseName() {
         System.out.println("What is your name?");
@@ -38,6 +41,14 @@ public class Player {
         }
         else {
             throw new Exception("Invalid location.");
+        }
+    }
+    public void findItem(String item) {
+        System.out.println("You found a " + item + "! Pick it up? [y/n]");
+        String answer = Game.nextLine();
+        if (answer.equalsIgnoreCase("y")) {
+            items.add(item);
+            System.out.println("You picked up an item!");
         }
     }
 }
